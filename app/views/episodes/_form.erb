@@ -1,0 +1,39 @@
+<p>
+  <%= f.label :podcast_id, "Podcast" %>
+  <%= f.collection_select :podcast_id, Podcast.all, :id, :title %>
+</p>
+
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</p>
+
+<p>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+</p>
+
+<p>
+  <%= f.label :media %>
+  <%= f.file_field :media %>
+</p>
+
+<p>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</p>
+
+<p>
+  <%= f.label :subtitle %>
+  <%= f.text_field :subtitle %>
+</p>
+
+<p>
+  <%= f.label :summary %>
+  <%= f.text_area :summary %>
+</p>
+
+<p>
+  <%= f.label :keywords %>
+  <%= f.text_field :keywords %>
+</p>
