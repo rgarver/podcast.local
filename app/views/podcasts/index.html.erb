@@ -2,10 +2,12 @@
 
 <table>
   <tr>
+    <th>Title</th>
   </tr>
 
 <% @podcasts.each do |podcast| %>
   <tr>
+    <td><%= podcast.title %></td>
     <td><%= link_to 'Show', podcast %></td>
     <td><%= link_to 'Edit', edit_podcast_path(podcast) %></td>
     <td><%= link_to 'Destroy', podcast, :confirm => 'Are you sure?', :method => :delete %></td>
