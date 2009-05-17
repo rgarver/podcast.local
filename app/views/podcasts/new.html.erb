@@ -1,3 +1,4 @@
+<%= link_to '<< Back', podcasts_path %><br/><br/>
 <h1>New podcast</h1>
 
 <% form_for(@podcast) do |f| %>
@@ -9,5 +10,3 @@
     <%= f.submit 'Create' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', podcasts_path %>
