@@ -1,3 +1,4 @@
+<%= link_to '<< Back', edit_podcast_path(@podcast) %><br/><br/>
 <h1>New episode</h1>
 
 <% form_for(@episode, :url => podcast_episodes_path(@podcast), :html => { :multipart => true }) do |f| %>
@@ -9,5 +10,3 @@
     <%= f.submit 'Create' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', edit_podcast_path(@podcast) %>
