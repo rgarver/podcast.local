@@ -1,21 +1,26 @@
+<%= link_to '<< Back', podcasts_path %><br/><br/>
 <h1>Editing podcast</h1>
 
-<% form_for(@podcast, :html => { :multipart => true }) do |f| %>
-  <%= f.error_messages %>
+<div class="span-12">
+  <% form_for(@podcast, :html => { :multipart => true }) do |f| %>
+    <%= f.error_messages %>
 
-  <%= render :partial => 'form', :locals => {:f => f} %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
 
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<ol>
-  <% @podcast.episodes.each do |episode| %>
-    <li><%= episode.title %> | <%= link_to "Edit", edit_episode_path(episode) %></li>
+    <p>
+      <%= f.submit 'Update' %>
+    </p>
   <% end %>
-</ol>
+</div>
 
-<%= link_to "New Episode", new_episode_path %> |
-<%= link_to 'Show', @podcast %> |
-<%= link_to 'Back', podcasts_path %>
+<div class="span-12 last">
+  <ol>
+    <% @podcast.episodes.each do |episode| %>
+      <li title="<%= episode.title %>">
+          <%= link_to truncate(episode.title, 64), edit_podcast_episode_path(@podcast, episode) %>
+      </li>
+    <% end %>
+  </ol>
+
+  <%= link_to "New Episode", new_podcast_episode_path(@podcast) %>
+</div>

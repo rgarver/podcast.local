@@ -1,6 +1,6 @@
 <h1>New episode</h1>
 
-<% form_for(@episode, :html => { :multipart => true }) do |f| %>
+<% form_for(@episode, :url => podcast_episodes_path(@podcast), :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
   <%= render :partial => 'form', :locals => {:f => f} %>
@@ -10,4 +10,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', episodes_path %>
+<%= link_to 'Back', edit_podcast_path(@podcast) %>

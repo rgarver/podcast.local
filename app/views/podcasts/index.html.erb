@@ -1,20 +1,43 @@
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('tr[data-clickable=true]').click(function(){
+        document.location = $(this).attr('data-url')
+      }).hover(function(){
+        $(this).addClass('ui-state-highlight')
+      }, function(){
+        $(this).removeClass('ui-state-highlight')
+      })
+    })
+  </script>
+  <style type="text/css">
+		div.icons {margin: 0; padding: 0; width: 64px; height: 16px;}
+		div.icons a {margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;}
+		div.icons span.ui-icon {float: left; margin: 0 4px;}
+	</style>
+<% end %>
+
 <h1>Listing podcasts</h1>
 
 <table>
   <tr>
     <th>Title</th>
+    <th style="width:32px">&nbsp;</th>
   </tr>
 
 <% @podcasts.each do |podcast| %>
-  <tr>
+  <tr data-clickable="true" data-url="<%= edit_podcast_path(podcast) %>" class="pointer">
     <td><%= podcast.title %></td>
-    <td><%= link_to 'Show', podcast %></td>
-    <td><%= link_to 'Edit', edit_podcast_path(podcast) %></td>
-    <td><%= link_to 'Destroy', podcast, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <div class="icons">
+      <%= link_to '<span class="ui-icon ui-icon-signal"></span>', podcast_path(podcast, :format => 'xml'), :title => 'Subscribe' %>
+      <%= link_to '<span class="ui-icon ui-icon-trash"></span>', podcast, :confirm => 'Are you sure?', :method => :delete, :title => 'Delete' %>
+      </div>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New podcast', new_podcast_path %>
+<%= link_to '<span class="ui-icon ui-icon-plus"></span>', new_podcast_path, :title => 'New Podcast' %>

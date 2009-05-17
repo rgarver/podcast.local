@@ -1,39 +1,34 @@
 <p>
-  <%= f.label :podcast_id, "Podcast" %>
-  <%= f.collection_select :podcast_id, Podcast.all, :id, :title %>
+  <%= f.label :title, nil, :class => 'title' %><br />
+  <%= f.text_field :title, :class => 'title span-16' %>
 </p>
 
 <p>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.label :author %><br />
+  <%= f.text_field :author, :class => 'text span-16' %>
 </p>
 
 <p>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
+  <%= f.label :media %>&nbsp;&nbsp;<%= "(#{link_to("Current Media", @episode.media.url)})" unless @episode.media_file_name.nil? %><br />
+  <%= f.file_field :media, :class => 'text span-16' %>
 </p>
 
 <p>
-  <%= f.label :media %>
-  <%= f.file_field :media %>
+  <%= f.label :description %><br />
+  <%= f.text_area :description, :class => 'text span-16' %>
 </p>
 
 <p>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.label :subtitle %><br />
+  <%= f.text_field :subtitle, :class => 'text span-16' %>
 </p>
 
 <p>
-  <%= f.label :subtitle %>
-  <%= f.text_field :subtitle %>
+  <%= f.label :summary %><br />
+  <%= f.text_area :summary, :class => 'text span-16' %>
 </p>
 
 <p>
-  <%= f.label :summary %>
-  <%= f.text_area :summary %>
-</p>
-
-<p>
-  <%= f.label :keywords %>
-  <%= f.text_field :keywords %>
+  <%= f.label :keywords %><br />
+  <%= f.text_field :keywords, :class => 'text span-16' %>
 </p>

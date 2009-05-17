@@ -1,4 +1,6 @@
 class EpisodesController < ApplicationController
+  before_filter :podcast_in_context
+  
   # GET /episodes
   # GET /episodes.xml
   def index
@@ -82,4 +84,10 @@ class EpisodesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  def podcast_in_context
+    @podcast = Podcast.find(params[:podcast_id].to_i)
+  end
+  
 end
